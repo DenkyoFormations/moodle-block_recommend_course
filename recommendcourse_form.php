@@ -22,8 +22,8 @@
  * @author     Himanshu Saini
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-require_once("$CFG->libdir/formslib.php");
+defined('MOODLE_INTERNAL') || die();
+require_once($CFG->libdir . '/formslib.php');
 /**
  * Form for recommending a course to selected users.
  *

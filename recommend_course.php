@@ -61,7 +61,7 @@ if ($mform->is_cancelled()) {
             get_string('add_error', 'block_recommend_course'),
             null,
             \core\output\notification::NOTIFY_ERROR
-        );    
+        );
     }
 } else {
     $PAGE->set_pagelayout('incourse');
