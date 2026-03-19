@@ -58,7 +58,7 @@ class recommendcourse_form extends moodleform {
         );
         $mform->addRule('course', get_string('required'), 'required', null, 'client');
 
-        // Add user multi-select autocomplete with AJAX.
+        // Add user multi-select autocomplete with aJAX.
         $useroptions = [
             'ajax' => 'block_recommend_course/form-user-selector',
             'multiple' => true,
