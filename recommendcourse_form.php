@@ -22,9 +22,8 @@
  * @author     Himanshu Saini
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-require_once("../../config.php");
-require_once("$CFG->libdir/formslib.php");
+defined('MOODLE_INTERNAL') || die();
+require_once($CFG->libdir . '/formslib.php');
 /**
  * Form for recommending a course to selected users.
  *
@@ -58,7 +57,7 @@ class recommendcourse_form extends moodleform {
         );
         $mform->addRule('course', get_string('required'), 'required', null, 'client');
 
-        // Add user multi-select autocomplete with AJAX.
+        // Add user multi-select autocomplete with aJAX.
         $useroptions = [
             'ajax' => 'block_recommend_course/form-user-selector',
             'multiple' => true,
