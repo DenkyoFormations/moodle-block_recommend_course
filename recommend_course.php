@@ -38,7 +38,7 @@ $mform = new recommendcourse_form();
 if ($mform->is_cancelled()) {
     redirect($CFG->wwwroot);
 } else if ($fromform = $mform->get_data()) {
-    // adding data to db.
+    // Adding data to db.
     if (count($fromform->users) > 0 && $fromform->course) {
         foreach ($fromform->users as $receiver) {
             $temp = new stdClass();
@@ -49,9 +49,19 @@ if ($mform->is_cancelled()) {
             $DB->insert_record('block_recommend_course_rds', $temp);
         }
         $redirecturl = "$CFG->wwwroot/blocks/recommend_course/recommend_course.php";
-        redirect($redirecturl, get_string('add_success', 'block_recommend_course'), null, \core\output\notification::NOTIFY_SUCCESS);
+        redirect(
+            $redirecturl,
+            get_string('add_success', 'block_recommend_course'),
+            null,
+            \core\output\notification::NOTIFY_SUCCESS
+        );
     } else {
-        redirect("$CFG->wwwroot/blocks/recommend_course/recommend_course.php", get_string('add_error', 'block_recommend_course'), null, \core\output\notification::NOTIFY_ERROR);
+        redirect(
+            "$CFG->wwwroot/blocks/recommend_course/recommend_course.php",
+            get_string('add_error', 'block_recommend_course'),
+            null,
+            \core\output\notification::NOTIFY_ERROR
+        );    
     }
 } else {
     $PAGE->set_pagelayout('incourse');
