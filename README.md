@@ -24,5 +24,9 @@ Recommended courses are displayed on the user's dashboard, with course cards and
 - Initial release
 - Added "Show all", "Recommend a course", and admin "View history" pages
 
+## Support and Feedback
+- This plugin is developed and maintained by <a href="https://justaddwater.in/">JUSTADDWATER</a>. 
+- You can also use <a href="https://justaddwater.in/contact/">contact page</a> on our website for reporting issues, support or any other feedback.  
+
 ## License
 GPL v3
