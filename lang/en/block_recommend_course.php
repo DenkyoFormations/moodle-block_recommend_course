@@ -46,6 +46,7 @@ $string['pluginname:myaddinstance'] = 'Add a new recommend a course block';
 
 $string['recommeded_by'] = 'Recommended by';
 $string['recommendation_history'] = 'View history';
+$string['recommendation_setting'] = 'Settings';
 $string['select_course'] = 'Select course';
 $string['select_users'] = 'Select users';
 $string['show_all'] = 'Show All Recommendations';
@@ -83,6 +84,7 @@ $string['recommendation_small']   = 'You have a new course recommendation';
 
 $string['recommend_course:addinstance'] = 'Add a new Recommend a Course block';
 $string['recommend_course:myaddinstance'] = 'Add a new Recommend a Course block to the Dashboard';
+$string['recommend_course:settings'] = 'Manage Settings';
 $string['recommend_course:viewstats'] = 'View course recommendation statistics';
 
 $string['privacy:metadata:block_recommend_course_rds'] = 'Stores course recommendations made by users.';
@@ -90,3 +92,27 @@ $string['privacy:metadata:block_recommend_course_rds:sender_id'] = 'User id of t
 $string['privacy:metadata:block_recommend_course_rds:receiver_id'] = 'User id of the user who received the recommendation.';
 $string['privacy:metadata:block_recommend_course_rds:course_id'] = 'Course id that was recommended.';
 $string['privacy:metadata:block_recommend_course_rds:created_on'] = 'When the recommendation was created.';
+
+// Send Notification
+$string['sendnotification'] = 'Send notification to recommendee';
+$string['sendnotification_help'] = 'If enabled, a notification will be sent to the recommendee when a course is recommended.';
+
+// Send Notification
+$string['sendemail'] = 'Send email to recommendee';
+$string['sendemail_help'] = 'If enabled, a email will be sent to the recommendee when a course is recommended.';
+
+// Email Body
+$string['emailbody'] = 'Email body';
+$string['emailbody_help'] = 'Customize the email message sent to the recommendee.<br>
+• <code>[course_name]</code> for the course name<br>
+• <code>[recommended_by]</code> for the user who recommended the course';
+
+// Placeholder heading
+$string['availableplaceholders'] = 'Available placeholders:';
+
+// Optional
+$string['enable'] = 'Enable';
+$string['savesettings'] = 'Save settings';
+
+// recommmendation notification
+$string['messageprovider:recommendation_notification'] = 'Course recommendation notification';

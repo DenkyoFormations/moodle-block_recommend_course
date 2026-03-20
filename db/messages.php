@@ -15,17 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Recommend a course Moodle block plugin
+ * Defines message providers (types of messages being sent) for Recommend a course
  *
  * @package    block_recommend_course
- * @copyright  2025 Justaddwater <contact@justaddwater.in>
- * @author     Himanshu Saini
- * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @category   message
+ * @copyright  2026 YOUR NAME <your@email.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2026032001;
-$plugin->requires = 2018051700; // Moodle 3.5.
-$plugin->component = 'block_recommend_course';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.1';
+$messageproviders = [
+    'recommendation_notification' => [
+        'capability' => '',
+    ],
+];

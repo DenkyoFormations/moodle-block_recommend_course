@@ -74,6 +74,7 @@ class main implements renderable, templatable {
 
         $context = \context_system::instance();
         $canviewhistory = has_capability('block/recommend_course:viewstats', $context);
+        $canchangesetting = has_capability('moodle/site:config', \context_system::instance());
 
         $issidebar = $this->issidebar;
         $limit = $issidebar ? 1 : 4;
@@ -106,7 +107,9 @@ class main implements renderable, templatable {
             'allurl' => (new \moodle_url('/blocks/recommend_course/all.php'))->out(false),
             'recommendurl' => (new \moodle_url('/blocks/recommend_course/recommend_course.php'))->out(false),
             'historyurl' => (new \moodle_url('/blocks/recommend_course/history.php'))->out(false),
+            'settingurl' => (new \moodle_url('/blocks/recommend_course/setting.php'))->out(false),
             'canviewhistory' => $canviewhistory,
+            'canchangesetting' => $canchangesetting,
         ];
     }
 }

@@ -65,5 +65,10 @@
                 {{#str}} recommendation_history, block_recommend_course {{/str}}
             </a>
         {{/canviewhistory}}
+        {{#canchangesetting}}
+            <a href="{{settingurl}}" class="btn btn-secondary btn-sm">
+                {{#str}} recommendation_setting, block_recommend_course {{/str}}
+            </a>
+        {{/canchangesetting}}
     </div>
 </div>
