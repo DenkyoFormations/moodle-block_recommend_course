@@ -25,7 +25,17 @@ define(['jquery'], function($) {
     return {
         init: function() {
 
-            // Function to get editor safely
+            /**
+             * Get the TinyMCE editor instance for the email body field.
+             *
+             * This function checks if TinyMCE is loaded on the page and
+             * returns the editor instance associated with the textarea
+             * having ID `id_email_body`. If TinyMCE is not available or
+             * the editor is not initialized, it returns null.
+             *
+             * @function getEditor
+             * @returns {tinymce.Editor|null} The TinyMCE editor instance if available, otherwise null.
+             */
             function getEditor() {
                 if (typeof window.tinymce !== 'undefined') {
                     return window.tinymce.get('id_email_body');
@@ -51,10 +61,10 @@ define(['jquery'], function($) {
 
                     attempts++;
 
-                    if (attempts > 10) { // stop after ~2 seconds
+                    if (attempts > 10) { // Stop after ~2 seconds
                         clearInterval(interval);
 
-                        // fallback
+                        // Fallback
                         let textarea = $('#id_email_body');
                         if (textarea.length) {
                             textarea.val(textarea.val() + value);
