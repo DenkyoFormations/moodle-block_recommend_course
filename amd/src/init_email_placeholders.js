@@ -23,58 +23,39 @@
 define(['jquery'], function($) {
 
     return {
-        init: function() {
-
-            /**
-             * Get the TinyMCE editor instance for the email body field.
-             *
-             * This function checks if TinyMCE is loaded on the page and
-             * returns the editor instance associated with the textarea
-             * having ID `id_email_body`. If TinyMCE is not available or
-             * the editor is not initialized, it returns null.
-             *
-             * @function getEditor
-             * @returns {tinymce.Editor|null} The TinyMCE editor instance if available, otherwise null.
-             */
-            function getEditor() {
-                if (typeof window.tinymce !== 'undefined') {
-                    return window.tinymce.get('id_email_body');
-                }
-                return null;
-            }
+        init: function(textareaid = 'id_email_body') {
 
             $(document).on('click', '.insert-placeholder', function(e) {
                 e.preventDefault();
-
-                let value = $(this).data('value');
-
-                let attempts = 0;
-
-                let interval = setInterval(function() {
-                    let editor = getEditor();
-
+                const value = $(this).data('value');
+                // Try TinyMCE.
+                if (typeof tinymce !== 'undefined') {
+                    let editor = tinymce.get(textareaid);
                     if (editor) {
                         editor.focus();
                         editor.insertContent(value);
-                        clearInterval(interval);
+                        return;
                     }
+                }
 
-                    attempts++;
-
-                    if (attempts > 10) { // Stop after ~2 seconds
-                        clearInterval(interval);
-
-                        // Fallback
-                        let textarea = $('#id_email_body');
-                        if (textarea.length) {
-                            textarea.val(textarea.val() + value);
-                        }
+                // Try Atto Editor.
+                let attoEditor = document.getElementById(textareaid + 'editable');
+                if (attoEditor) {
+                    attoEditor.focus();
+                    // Insert at cursor.
+                    if (document.execCommand) {
+                        document.execCommand('insertText', false, value);
+                    } else {
+                        attoEditor.innerHTML += value;
                     }
-
-                }, 200);
+                    return;
+                }
+                // Fallback (textarea).
+                let textarea = $('#' + textareaid);
+                if (textarea.length) {
+                    textarea.val(textarea.val() + value);
+                } 
             });
-
         }
     };
-
 });
