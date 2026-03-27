@@ -18,85 +18,96 @@
  * TODO describe file settings_form
  *
  * @package    block_recommend_course
- * @copyright  2026 YOUR NAME <your@email.com>
+ * @copyright  2026 Justaddwater <contact@justaddwater.in>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/formslib.php');
+/**
+ * Form for recommending a course to selected users.
+ *
+ * @package    block_recommend_course
+ * @category   form
+ */
 class recommend_course_settings_form extends moodleform {
+    /**
+     * Add elements to form
+     */
+    public function definition() {
+        $mform = $this->_form;
 
-public function definition() {
-    $mform = $this->_form;
+        // Send Notification Toggle.
+        $notification = $mform->createElement(
+            'advcheckbox',
+            'send_notification',
+            '',
+            '&nbsp;' . get_string('enable', 'block_recommend_course')
+        );
 
-    // ✅ Send Notification Toggle
-    $notification = $mform->createElement(
-        'advcheckbox',
-        'send_notification',
-        '',
-        '&nbsp;' . get_string('enable', 'block_recommend_course')
-    );
+        $mform->addGroup(
+            [$notification],
+            'send_notification_group',
+            get_string('sendnotification', 'block_recommend_course'),
+            [' '],
+            false
+        );
 
-    $mform->addGroup(
-        [$notification],
-        'send_notification_group',
-        get_string('sendnotification', 'block_recommend_course'),
-        [' '],
-        false
-    );
+        $mform->setDefault('send_notification', 1);
 
-    $mform->setDefault('send_notification', 1);
+        // Help button (group).
+        $mform->addHelpButton('send_notification_group', 'sendnotification', 'block_recommend_course');
 
-    // ✅ Help button (group)
-    $mform->addHelpButton('send_notification_group', 'sendnotification', 'block_recommend_course');
+        // Send Notification Toggle.
+        $notification = $mform->createElement(
+            'advcheckbox',
+            'send_email',
+            '',
+            '&nbsp;' . get_string('enable', 'block_recommend_course')
+        );
 
-        // ✅ Send Notification Toggle
-    $notification = $mform->createElement(
-        'advcheckbox',
-        'send_email',
-        '',
-        '&nbsp;' . get_string('enable', 'block_recommend_course')
-    );
+        $mform->addGroup(
+            [$notification],
+            'send_email_group',
+            get_string('sendemail', 'block_recommend_course'),
+            [' '],
+            false
+        );
 
-    $mform->addGroup(
-        [$notification],
-        'send_email_group',
-        get_string('sendemail', 'block_recommend_course'),
-        [' '],
-        false
-    );
+        $mform->setDefault('send_email', 1);
 
-    $mform->setDefault('send_email', 1);
+        // Help button (group).
+        $mform->addHelpButton('send_email_group', 'sendemail', 'block_recommend_course');
 
-    // ✅ Help button (group)
-    $mform->addHelpButton('send_email_group', 'sendemail', 'block_recommend_course');
-
-    // ✅ Email Body Editor
-    $editoroptions = [
+        // Email Body Editor.
+        $editoroptions = [
         'maxfiles' => 0,
-        'context' => context_system::instance()
-    ];
+        'context' => context_system::instance(),
+        ];
 
-    $mform->addElement(
-        'editor',
-        'email_body',
-        get_string('emailbody', 'block_recommend_course'),
-        null,
-        $editoroptions
-    );
+        $mform->addElement(
+            'editor',
+            'email_body',
+            get_string('emailbody', 'block_recommend_course'),
+            null,
+            $editoroptions
+        );
 
-    $mform->setType('email_body', PARAM_RAW);
+        $mform->setType('email_body', PARAM_RAW);
 
-    // ✅ Help button
-    $mform->addHelpButton('email_body', 'emailbody', 'block_recommend_course');
+        // Help button.
+        $mform->addHelpButton('email_body', 'emailbody', 'block_recommend_course');
 
-    // ✅ Placeholders
-    $mform->addElement('static', 'placeholders', '',
-        '<strong>' . get_string('availableplaceholders', 'block_recommend_course') . '</strong><br>
+        // Placeholders.
+        $mform->addElement(
+            'static',
+            'placeholders',
+            '',
+            '<strong>' . get_string('availableplaceholders', 'block_recommend_course') . '</strong><br>
         <a href="#" class="insert-placeholder" data-value="[course_name]"><code>[course_name]</code></a><br>
         <a href="#" class="insert-placeholder" data-value="[recommended_by]"><code>[recommended_by]</code></a>'
-    );
+        );
 
-    // Submit
-    $this->add_action_buttons(true, get_string('savesettings', 'block_recommend_course'));
-}
+        // Submit.
+        $this->add_action_buttons(true, get_string('savesettings', 'block_recommend_course'));
+    }
 }

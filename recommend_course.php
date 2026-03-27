@@ -40,12 +40,12 @@ if ($mform->is_cancelled()) {
 } else if ($fromform = $mform->get_data()) {
     // Adding data to db.
     if (count($fromform->users) > 0 && $fromform->course) {
-            // ✅ Get settings once
+            // Get settings once.
         $sendnotification = get_config('block_recommend_course', 'send_notification');
         $sendemail = get_config('block_recommend_course', 'send_email');
         $emailbody = get_config('block_recommend_course', 'email_body');
-        // ✅ Get course name
-    $course = $DB->get_record('course', ['id' => $fromform->course], '*', MUST_EXIST);
+        // Get course name.
+        $course = $DB->get_record('course', ['id' => $fromform->course], '*', MUST_EXIST);
         foreach ($fromform->users as $receiver) {
             $temp = new stdClass();
             $temp->sender_id = $USER->id;
@@ -54,21 +54,17 @@ if ($mform->is_cancelled()) {
             $temp->created_on = date('Y-m-d H:i:s');
             $DB->insert_record('block_recommend_course_rds', $temp);
 
-            // ✅ Get receiver user object
+            // Get receiver user object.
             $recommendee = $DB->get_record('user', ['id' => $receiver], '*', MUST_EXIST);
 
-            // ✅ Prepare message with placeholders
+            // Prepare message with placeholders.
             $message = str_replace(
                 ['[course_name]', '[recommended_by]'],
                 [$course->fullname, fullname($USER)],
                 $emailbody
             );
-
-            // =========================
-            // ✅ SEND NOTIFICATION
-            // =========================
+            // SEND NOTIFICATION.
             if ($sendnotification) {
-
                 $eventdata = new \core\message\message();
                 $eventdata->component = 'block_recommend_course';
                 $eventdata->name = 'recommendation_notification';
@@ -82,21 +78,16 @@ if ($mform->is_cancelled()) {
 
                 message_send($eventdata);
             }
+            // SEND EMAIL.
 
-            // =========================
-            // ✅ SEND EMAIL
-            // =========================
-            
             if ($sendemail) {
-
-             $result=   email_to_user(
+                $result = email_to_user(
                     $recommendee,
                     $USER,
                     'Course Recommendation',
-                    strip_tags($message), // plain text
-                    $message              // HTML
+                    strip_tags($message), // Plain text.
+                    $message              // HTML.
                 );
-               
             }
         }
         $redirecturl = "$CFG->wwwroot/blocks/recommend_course/recommend_course.php";

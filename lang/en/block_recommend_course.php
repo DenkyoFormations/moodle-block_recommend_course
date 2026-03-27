@@ -93,26 +93,26 @@ $string['privacy:metadata:block_recommend_course_rds:receiver_id'] = 'User id of
 $string['privacy:metadata:block_recommend_course_rds:course_id'] = 'Course id that was recommended.';
 $string['privacy:metadata:block_recommend_course_rds:created_on'] = 'When the recommendation was created.';
 
-// Send Notification
+// Send Notification.
 $string['sendnotification'] = 'Send notification to recommendee';
 $string['sendnotification_help'] = 'If enabled, a notification will be sent to the recommendee when a course is recommended.';
 
-// Send Notification
+// Send Email.
 $string['sendemail'] = 'Send email to recommendee';
 $string['sendemail_help'] = 'If enabled, a email will be sent to the recommendee when a course is recommended.';
 
-// Email Body
+// Email Body.
 $string['emailbody'] = 'Email body';
 $string['emailbody_help'] = 'Customize the email message sent to the recommendee.<br>
 • <code>[course_name]</code> for the course name<br>
 • <code>[recommended_by]</code> for the user who recommended the course';
 
-// Placeholder heading
+// Placeholder heading.
 $string['availableplaceholders'] = 'Available placeholders:';
 
-// Optional
+// Optional.
 $string['enable'] = 'Enable';
 $string['savesettings'] = 'Save settings';
 
-// recommmendation notification
+// Recommmendation notification.
 $string['messageprovider:recommendation_notification'] = 'Course recommendation notification';
