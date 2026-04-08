@@ -91,14 +91,6 @@ class recommend_course_settings_form extends moodleform {
         );
 
         $mform->setType('email_body', PARAM_RAW);
-        
-        $mform->setDefault('email_body', [
-            'text' => 'Enter your default content here.',
-            'format' => FORMAT_HTML
-        ]);
-
-
-
         // Help button.
         $mform->addHelpButton('email_body', 'emailbody', 'block_recommend_course');
 
