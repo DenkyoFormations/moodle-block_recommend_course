@@ -103,6 +103,16 @@ $string['sendemail_help'] = 'If enabled, a email will be sent to the recommendee
 
 // Email Body.
 $string['emailbody'] = 'Email body';
+$string['default_email_body'] ='Hello!,<br><br>
+
+You have received a new course recommendation.<br>
+<b>Course:</b> [course_name]<br>
+<b>Recommended by:</b> [recommended_by]<br><br>
+
+You can view the course details and begin learning by logging into your dashboard.<br><br>
+
+Best regards,<br>
+The Learning Team';
 $string['emailbody_help'] = 'Customize the email message sent to the recommendee.<br>
 • <code>[course_name]</code> for the course name<br>
 • <code>[recommended_by]</code> for the user who recommended the course';
