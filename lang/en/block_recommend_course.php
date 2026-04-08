@@ -103,7 +103,7 @@ $string['sendemail_help'] = 'If enabled, a email will be sent to the recommendee
 
 // Email Body.
 $string['emailbody'] = 'Email body';
-$string['default_email_body'] ='Hello!,<br><br>
+$string['default_email_body'] = 'Hello!,<br><br>
 
 You have received a new course recommendation.<br>
 <b>Course:</b> [course_name]<br>

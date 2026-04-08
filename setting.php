@@ -66,12 +66,14 @@ $toform = new stdClass();
 $toform->send_notification = get_config('block_recommend_course', 'send_notification');
 $toform->send_email = get_config('block_recommend_course', 'send_email');
 
-$email_body = get_config('block_recommend_course', 'email_body');
-if(strlen($email_body)==0)
-$email_body = get_string('default_email_body', 'block_recommend_course');    
+$emailbody = get_config('block_recommend_course', 'email_body');
+
+if (strlen($emailbody) == 0) {
+    $emailbody = get_string('default_email_body', 'block_recommend_course');
+}
 
 $toform->email_body = [
-    'text' => $email_body,
+    'text' => $emailbody,
     'format' => FORMAT_HTML,
 ];
 
