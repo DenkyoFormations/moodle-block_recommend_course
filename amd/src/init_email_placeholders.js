@@ -17,7 +17,7 @@
  * TODO describe module init_email_placeholders
  *
  * @module     block_recommend_course/init_email_placeholders
- * @copyright  2026 YOUR NAME <your@email.com>
+ * @copyright  2026 Justaddwater <contact@justaddwater.in>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 /* global tinymce */
@@ -84,7 +84,7 @@ function cleanTinyMCE() {
 
                 if (container.length) {
 
-                    // Hide buttons using data-mce-name (best way)
+                    // Hide buttons.
                     container.find('button[data-mce-name="tiny_media_image"]').hide();
                     container.find('button[data-mce-name="tiny_media_video"]').hide();
                     container.find('button[data-mce-name="tiny_h5p"]').hide();
@@ -93,10 +93,11 @@ function cleanTinyMCE() {
                 }
             });
 
+            // ✅ STOP interval after success.
+            clearInterval(interval);
         }
 
-    }, 500); // runs every 500ms
-
+    }, 500);
 }
 
 

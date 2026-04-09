@@ -19,7 +19,7 @@
  *
  * @package    block_recommend_course
  * @category   message
- * @copyright  2026 YOUR NAME <your@email.com>
+ * @copyright  2026 Justaddwater <contact@justaddwater.in>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
