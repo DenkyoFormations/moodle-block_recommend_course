@@ -26,10 +26,12 @@ define(['jquery'], function($) {
     return {
         init: function(textareaid = 'id_email_body') {
 
+            // Placeholder insert (same as before).
             $(document).on('click', '.insert-placeholder', function(e) {
                 e.preventDefault();
                 const value = $(this).data('value');
-                // Try TinyMCE.
+
+                // TinyMCE
                 if (typeof tinymce !== 'undefined') {
                     let editor = tinymce.get(textareaid);
                     if (editor) {
@@ -39,24 +41,81 @@ define(['jquery'], function($) {
                     }
                 }
 
-                // Try Atto Editor.
+                // Atto.
                 let attoEditor = document.getElementById(textareaid + 'editable');
                 if (attoEditor) {
                     attoEditor.focus();
-                    // Insert at cursor.
-                    if (document.execCommand) {
-                        document.execCommand('insertText', false, value);
-                    } else {
-                        attoEditor.innerHTML += value;
-                    }
+                    document.execCommand('insertText', false, value);
                     return;
                 }
-                // Fallback (textarea).
+
+                // Fallback.
                 let textarea = $('#' + textareaid);
                 if (textarea.length) {
                     textarea.val(textarea.val() + value);
                 }
             });
+
+
+            /**
+             * Clean option buttons if atto editor loads
+             */
+            function cleanAtto() {
+                $('.atto_image_button').closest('button').hide();
+                $('.atto_media_button').closest('button').hide();
+                $('.atto_managefiles_button').closest('button').hide();
+                $('.atto_recordrtc_button').closest('button').hide();
+                $('.atto_table_button').closest('button').hide();
+            }
+
+
+            /**
+             * Clean option buttons if TinyMce editor loads
+             */
+function cleanTinyMCE() {
+
+    const interval = setInterval(function() {
+
+        if (typeof tinymce !== 'undefined' && tinymce.editors.length) {
+
+            tinymce.editors.forEach(function(editor) {
+
+                const container = $(editor.getContainer());
+
+                if (container.length) {
+
+                    // Hide buttons using data-mce-name (best way)
+                    container.find('button[data-mce-name="tiny_media_image"]').hide();
+                    container.find('button[data-mce-name="tiny_media_video"]').hide();
+                    container.find('button[data-mce-name="tiny_h5p"]').hide();
+                    container.find('button[data-mce-name="tiny_equation"]').hide();
+
+                }
+            });
+
+        }
+
+    }, 500); // runs every 500ms
+
+}
+
+
+            // ⏱ Run after load
+            setTimeout(function() {
+                cleanAtto();
+                cleanTinyMCE();
+            }, 1200);
+
+
+            // 🔁 Re-run on focus
+            $(document).on('focus', '.editor_atto_content', function() {
+                cleanAtto();
+            });
+
+            $(document).on('focus', '.tox-edit-area iframe', function() {
+                cleanTinyMCE();
+            });
+
         }
     };
 });
