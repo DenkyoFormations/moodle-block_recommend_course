@@ -76,24 +76,25 @@ function cleanTinyMCE() {
 
     const interval = setInterval(function() {
 
-        if (typeof tinymce !== 'undefined' && tinymce.editors.length) {
+        if (typeof tinymce !== 'undefined' && tinymce.editors && tinymce.editors.length) {
 
             tinymce.editors.forEach(function(editor) {
 
-                const container = $(editor.getContainer());
+                setTimeout(function() {
 
-                if (container.length) {
+                    const container = $(editor.getContainer());
 
-                    // Hide buttons.
-                    container.find('button[data-mce-name="tiny_media_image"]').hide();
-                    container.find('button[data-mce-name="tiny_media_video"]').hide();
-                    container.find('button[data-mce-name="tiny_h5p"]').hide();
-                    container.find('button[data-mce-name="tiny_equation"]').hide();
+                    if (container.length) {
+                        container.find('button[data-mce-name="tiny_media_image"]').hide();
+                        container.find('button[data-mce-name="tiny_media_video"]').hide();
+                        container.find('button[data-mce-name="tiny_h5p"]').hide();
+                        container.find('button[data-mce-name="tiny_equation"]').hide();
+                    }
 
-                }
+                }, 300);
+
             });
 
-            // ✅ STOP interval after success.
             clearInterval(interval);
         }
 
