@@ -76,6 +76,20 @@ class recommend_course_settings_form extends moodleform {
         // Help button (group).
         $mform->addHelpButton('send_email_group', 'sendemail', 'block_recommend_course');
 
+        // Subject field.
+        $mform->addElement(
+            'text',
+            'email_subject',
+            get_string('emailsubject', 'block_recommend_course'),
+            ['style' => 'width: 100%;']
+        );
+
+        $mform->setType('email_subject', PARAM_TEXT);
+        $mform->setDefault('email_subject', 'Course Recommendation');
+
+        // Help button (optional).
+        $mform->addHelpButton('email_subject', 'emailsubject', 'block_recommend_course');
+
         // Email Body Editor.
         $editoroptions = [
         'maxfiles' => 0,

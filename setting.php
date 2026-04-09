@@ -53,6 +53,9 @@ if ($mform->is_cancelled()) {
     // Save email toggle.
     set_config('send_email', $data->send_email, 'block_recommend_course');
 
+    // Save email subject.
+    set_config('email_subject', $data->email_subject, 'block_recommend_course');
+
     // Save email body (editor).
     $emailbody = $data->email_body['text'];
     set_config('email_body', $emailbody, 'block_recommend_course');
@@ -65,6 +68,14 @@ $toform = new stdClass();
 
 $toform->send_notification = get_config('block_recommend_course', 'send_notification');
 $toform->send_email = get_config('block_recommend_course', 'send_email');
+$emailsubject = get_config('block_recommend_course', 'email_subject');
+
+if (strlen($emailsubject) == 0) {
+    $emailsubject = get_string('default_email_subject', 'block_recommend_course');
+}
+
+$toform->email_subject = $emailsubject;
+
 
 $emailbody = get_config('block_recommend_course', 'email_body');
 

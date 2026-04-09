@@ -25,7 +25,25 @@
 defined('MOODLE_INTERNAL') || die();
 
 $messageproviders = [
-    'recommendation_notification' => [
-        'capability' => '',
+
+    'recommendation_both' => [
+        'defaults' => [
+            'popup' => MESSAGE_PERMITTED,
+            'email' => MESSAGE_PERMITTED,
+        ],
+    ],
+
+    'recommendation_popup' => [
+        'defaults' => [
+            'popup' => MESSAGE_PERMITTED,
+            'email' => MESSAGE_DISALLOWED,
+        ],
+    ],
+
+    'recommendation_email' => [
+        'defaults' => [
+            'popup' => MESSAGE_DISALLOWED,
+            'email' => MESSAGE_PERMITTED,
+        ],
     ],
 ];
