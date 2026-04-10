@@ -74,7 +74,7 @@ class main implements renderable, templatable {
 
         $context = \context_system::instance();
         $canviewhistory = has_capability('block/recommend_course:viewstats', $context);
-        $canchangesetting = has_capability('moodle/site:config', \context_system::instance());
+        $canchangesetting = is_siteadmin();
 
         $issidebar = $this->issidebar;
         $limit = $issidebar ? 1 : 4;

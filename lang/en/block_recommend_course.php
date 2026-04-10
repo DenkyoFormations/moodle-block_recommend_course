@@ -29,80 +29,13 @@
 $string['add_error'] = 'Invalid data. Please select at least one user and course.';
 $string['add_success'] = 'Recommendation has been successfully submitted.';
 $string['all_recommendation'] = 'All Recommendations';
+$string['availableplaceholders'] = 'Available placeholders:';
 $string['back_dashboard'] = 'Back to dashboard';
 $string['blocktitle'] = 'Recent Recommendations';
 $string['button'] = 'Recommend a course';
 $string['by'] = 'By:';
 $string['course'] = 'Course';
-$string['description'] = 'A block to recommend courses to users';
-$string['details_below'] = 'Please find details below';
-$string['email_open'] = 'You have received a course recommendation on ';
-$string['email_subject'] = 'You have a new course recommendation.';
-$string['historytitle'] = 'Recommendation history';
-$string['noselection_string'] = 'Search users from below';
-$string['pluginname'] = 'Recommend a course';
-$string['pluginname:addinstance'] = 'Add a new recommend a course block';
-$string['pluginname:myaddinstance'] = 'Add a new recommend a course block';
-
-$string['recommeded_by'] = 'Recommended by';
-$string['recommendation_history'] = 'View history';
-$string['recommendation_setting'] = 'Settings';
-$string['select_course'] = 'Select course';
-$string['select_users'] = 'Select users';
-$string['show_all'] = 'Show All Recommendations';
-$string['submit'] = 'Submit';
-$string['title'] = 'Recommend a course';
-
-$string['history_table_caption'] = 'Course recommendation history';
-$string['recommended_by'] = 'Recommended by';
-$string['recommended_to'] = 'Recommended to';
-$string['recommended_date'] = 'Recommended date';
-
-$string['view_course'] = 'View Course';
-
-// Privacy text.
-$string['privacy:metadata'] = 'The recommend a course block does not store any personal information and works based on user ID.';
-
-$string['nopermission'] = 'You do not have permission to view this page.';
-$string['recommendedto'] = 'Recommended to';
-$string['recommendeddate'] = 'Recommended on';
-$string['nocoursesfound'] = 'No recommended courses found.';
-
-$string['mostrecommended'] = 'Most Popular';
-$string['leastrecommended'] = 'Least Popular';
-$string['notopcourses'] = 'No recommended courses found.';
-$string['nobottomcourses'] = 'No recommendations received yet.';
-$string['serialno'] = 'Rank';
-$string['totalrecommendations'] = 'Times recommended';
-$string['unknowncourse'] = 'Unknown course';
 $string['course_recommendations_stats'] = 'Stats';
-
-$string['recommend_course:addinstance'] = 'Add a new recommend a course block';
-$string['recommendation_subject'] = 'A course has been recommended to you';
-$string['recommendation_message'] = '{$a->user} has recommended the course "{$a->course}" to you.';
-$string['recommendation_small']   = 'You have a new course recommendation';
-
-$string['recommend_course:addinstance'] = 'Add a new Recommend a Course block';
-$string['recommend_course:myaddinstance'] = 'Add a new Recommend a Course block to the Dashboard';
-$string['recommend_course:settings'] = 'Manage Settings';
-$string['recommend_course:viewstats'] = 'View course recommendation statistics';
-
-$string['privacy:metadata:block_recommend_course_rds'] = 'Stores course recommendations made by users.';
-$string['privacy:metadata:block_recommend_course_rds:sender_id'] = 'User id of the person who recommended the course.';
-$string['privacy:metadata:block_recommend_course_rds:receiver_id'] = 'User id of the user who received the recommendation.';
-$string['privacy:metadata:block_recommend_course_rds:course_id'] = 'Course id that was recommended.';
-$string['privacy:metadata:block_recommend_course_rds:created_on'] = 'When the recommendation was created.';
-
-// Send Notification.
-$string['sendnotification'] = 'Send notification to recommendee';
-$string['sendnotification_help'] = 'If enabled, a notification will be sent to the recommendee when a course is recommended.';
-
-// Send Email.
-$string['sendemail'] = 'Send email to recommendee';
-$string['sendemail_help'] = 'If enabled, a email will be sent to the recommendee when a course is recommended.';
-
-// Email Body.
-$string['emailbody'] = 'Email body';
 $string['default_email_body'] = 'Hello!,<br><br>
 
 You have received a new course recommendation.<br>
@@ -113,16 +46,66 @@ You can view the course details and begin learning by logging into your dashboar
 
 Best regards,<br>
 The Learning Team';
+$string['default_email_subject'] = 'You have received a new course recommendation.';
+$string['description'] = 'A block to recommend courses to users';
+$string['details_below'] = 'Please find details below';
+$string['email_open'] = 'You have received a course recommendation on ';
+$string['email_subject'] = 'You have a new course recommendation.';
+$string['emailbody'] = 'Email body';
 $string['emailbody_help'] = 'Customize the email message sent to the recommendee.<br>
 • <code>[course_name]</code> for the course name<br>
 • <code>[recommended_by]</code> for the user who recommended the course';
-
-// Placeholder heading.
-$string['availableplaceholders'] = 'Available placeholders:';
-
-// Optional.
+$string['emailsubject'] = 'Email Subject';
+$string['emailsubject_help'] = 'Set the subject line for course recommendation messages.';
 $string['enable'] = 'Enable';
-$string['savesettings'] = 'Save settings';
+$string['history_table_caption'] = 'Course recommendation history';
+$string['historytitle'] = 'Recommendation history';
+$string['leastrecommended'] = 'Least Popular';
+$string['messageprovider:recommendation_both'] = 'Recommendation (Email + Notification)';
+$string['messageprovider:recommendation_email'] = 'Recommendation (Email only)';
+$string['messageprovider:recommendation_popup'] = 'Recommendation (Notification only)';
+$string['mostrecommended'] = 'Most Popular';
+$string['nobottomcourses'] = 'No recommendations received yet.';
+$string['nocoursesfound'] = 'No recommended courses found.';
+$string['nopermission'] = 'You do not have permission to view this page.';
+$string['noselection_string'] = 'Search users from below';
+$string['notopcourses'] = 'No recommended courses found.';
+$string['pluginname'] = 'Recommend a course';
+$string['pluginname:addinstance'] = 'Add a new recommend a course block';
+$string['pluginname:myaddinstance'] = 'Add a new recommend a course block';
 
-// Recommmendation notification.
-$string['messageprovider:recommendation_notification'] = 'Course recommendation notification';
+$string['privacy:metadata'] = 'The recommend a course block does not store any personal information and works based on user ID.';
+$string['privacy:metadata:block_recommend_course_rds'] = 'Stores course recommendations made by users.';
+$string['privacy:metadata:block_recommend_course_rds:course_id'] = 'Course id that was recommended.';
+$string['privacy:metadata:block_recommend_course_rds:created_on'] = 'When the recommendation was created.';
+$string['privacy:metadata:block_recommend_course_rds:receiver_id'] = 'User id of the user who received the recommendation.';
+$string['privacy:metadata:block_recommend_course_rds:sender_id'] = 'User id of the person who recommended the course.';
+$string['recommeded_by'] = 'Recommended by';
+$string['recommend_course:addinstance'] = 'Add a new recommend a course block';
+$string['recommend_course:myaddinstance'] = 'Add a new Recommend a Course block to the Dashboard';
+$string['recommend_course:settings'] = 'Manage Settings';
+$string['recommend_course:viewstats'] = 'View course recommendation statistics';
+$string['recommendation_history'] = 'View history';
+$string['recommendation_message'] = '{$a->user} has recommended the course "{$a->course}" to you.';
+$string['recommendation_setting'] = 'Settings';
+$string['recommendation_small']   = 'You have a new course recommendation';
+$string['recommendation_subject'] = 'A course has been recommended to you';
+$string['recommended_by'] = 'Recommended by';
+$string['recommended_date'] = 'Recommended date';
+$string['recommended_to'] = 'Recommended to';
+$string['recommendeddate'] = 'Recommended on';
+$string['recommendedto'] = 'Recommended to';
+$string['savesettings'] = 'Save settings';
+$string['select_course'] = 'Select course';
+$string['select_users'] = 'Select users';
+$string['sendemail'] = 'Send email to recommendee';
+$string['sendemail_help'] = 'If enabled, a email will be sent to the recommendee when a course is recommended.';
+$string['sendnotification'] = 'Send notification to recommendee';
+$string['sendnotification_help'] = 'If enabled, a notification will be sent to the recommendee when a course is recommended.';
+$string['serialno'] = 'Rank';
+$string['show_all'] = 'Show All Recommendations';
+$string['submit'] = 'Submit';
+$string['title'] = 'Recommend a course';
+$string['totalrecommendations'] = 'Times recommended';
+$string['unknowncourse'] = 'Unknown course';
+$string['view_course'] = 'View Course';
