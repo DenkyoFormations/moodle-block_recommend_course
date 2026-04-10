@@ -46,7 +46,7 @@ You can view the course details and begin learning by logging into your dashboar
 
 Best regards,<br>
 The Learning Team';
-$string['default_email_subject'] = '[recommended_by] recommends "[course_name]" for you';
+$string['default_email_subject'] = 'You have received a new course recommendation.';
 $string['description'] = 'A block to recommend courses to users';
 $string['details_below'] = 'Please find details below';
 $string['email_open'] = 'You have received a course recommendation on ';
