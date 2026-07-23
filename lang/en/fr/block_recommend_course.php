@@ -35,7 +35,7 @@ $string['button'] = 'Ajouter un cours';
 $string['by'] = 'Suggéré par';
 $string['course'] = 'Cours';
 $string['course_recommendations_stats'] = 'Statistiques';
-$string['default_email_body'] = 'Bonjour,<br><br>Le cours "[course_name]" pourrait vous intéresser.<br>Rendez-vous sur <a href="https://formations-recette.denkyo.fr/my/courses.php">Moodle</a> pour en savoir plus !<br><br>A bientôt !<br>__<br>[recommended_by]';
+$string['default_email_body'] = 'Bonjour,<br><br>Le cours "[course_name]" pourrait vous intéresser.<br>Rendez-vous sur <a href="">Moodle</a> pour en savoir plus !<br><br>A bientôt !<br>__<br>[recommended_by]';
 $string['default_email_subject'] = 'Nouveau cours sur Moodle !';
 $string['description'] = 'Ce bloc permet de proposer des cours aux utilisateurs.';
 $string['details_below'] = 'Plus d\'info ci-dessous';
